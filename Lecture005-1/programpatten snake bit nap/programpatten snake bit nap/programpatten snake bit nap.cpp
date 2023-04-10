@@ -1,4 +1,5 @@
-﻿#include <iostream>
+﻿#define CRT_SECURE_NO_WARNINGS
+#include <iostream>
 #include <conio.h>
 #include <Windows.h>
 
@@ -38,6 +39,8 @@ void gotoxy(int x, int y) {
 
 int print_game_start() {
     int i, j;
+    std::cout << "x y를 입력하세요";
+    scanf_s("%d %d",&weight,&height);
     for (i = 1; i <= weight; i++) {
         for (j = 1; j <= height; j++) {
             if (i == 1 || i == weight || j == 1 || j == height) {
