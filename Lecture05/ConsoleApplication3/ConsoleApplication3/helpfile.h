@@ -2,7 +2,6 @@
 #include <iostream>
 #include <conio.h>
 #include <Windows.h>
-#include "help"
 #define KEY_ESC 27
 #define KEY_LEFT 'a'
 #define KEY_RIGHT 'd'
@@ -32,7 +31,6 @@ void printSquare(char c) {
     std::cout << std::endl;
 }
 
-
 int print_title_screen() {
     std::cout << "**********************************************\n";
     std::cout << "*                                            *\n";
@@ -50,19 +48,79 @@ int print_title_screen() {
 }
 
 int print_introduction_screen() {
+    char key_input;
     std::cout << "**********************************************\n";
     std::cout << "    게임 설명 화면입니다.                    *\n";
     std::cout << "    지렁이 먹으면 클지도?                    *\n";
     std::cout << "    시대는 멀리 멀리 발전한다?.              *\n";
     std::cout << "**********************************************\n";
     std::cout << "    타이틀 화면 ㄱ?(Y/N)                     *\n";
+    key_input = 0;
+    while (key_input != 'y' && key_input != 'Y') {
+        key_input = _getch();
+    }
+    if (key_input == 'y' || key_input == 'Y') {
+        system("cls");
+        print_title_screen();
+    }
     return 0;
 }
 
-
-int print_game_start() {
+void KeyEvent() {
+    if (LastKey == KEY_ESC) {
+        LastKey = 0; // 마지막 키값 초기화
+        system("cls");
+        gotoxy(3, 10);
+        std::cout << ANSI_COLOR_RESET"게임을 종료하시겠습니까?(예/아니요)" << std::endl;
+    }
+    else if (LastKey != KEY_ESC) { // ESC가 눌려지지 않았을 때에만 실행
+        char KeyInput = _getch();
+        switch (KeyInput) {
+        case KEY_LEFT:
+            LastKey = KEY_LEFT;
+            system("cls");
+            gotoxy(10, 10);
+            std::cout << "게임을 종료하시겠습니까?";
+            gotoxy(40, 10);
+            std::cout << ANSI_COLOR_YELLOW << "예" << ANSI_COLOR_RESET;
+            gotoxy(42, 10);
+            std::cout << "//";
+            gotoxy(42, 10);
+            std::cout << ANSI_COLOR_DARKGRAY << "아니요" << ANSI_COLOR_RESET;
+            break;
+        case KEY_RIGHT:
+            system("cls");
+            gotoxy(10, 10);
+            std::cout << "게임을 종료하시겠습니까?";
+            gotoxy(40, 10);
+            std::cout << ANSI_COLOR_DARKGRAY << "예" << ANSI_COLOR_RESET;
+            gotoxy(42, 10);
+            std::cout << ANSI_COLOR_YELLOW << "아니요" << ANSI_COLOR_RESET;
+            break;
+        case KEY_ENTER:
+            if (LastKey == KEY_LEFT) {
+                gotoxy(3, 24);
+                system("cls");
+                std::cout << ANSI_COLOR_RESET"게임을 종료합니다." << std::endl;
+                print_title_screen();
+            }
+            else if (LastKey == KEY_RIGHT) {
+                system("cls");
+                print_title_screen();
+            }
+            // 마지막 키값 초기화
+            LastKey = 0;
+            break;
+        default:
+            break;
+        }
+    }
+    
+}
+void print_game_start() {
     int i, j;
     std::cout << "x y를 입력하세요";
+
     scanf_s("%d %d", &weight, &height);
     for (i = 1; i <= weight; i++) {
         for (j = 1; j <= height; j++) {
@@ -76,29 +134,31 @@ int print_game_start() {
         }
         std::cout << "\n";
     }
+
     char key_input = '0';
     // 가운데 출력
     int center_x = weight / 2;
     int center_y = height / 2;
     gotoxy(center_y * 2, center_x);
     printSquare('@');
-    //gotoxy(center_y * 2, center_x + 1);
-    //printSquare('█');
+
     key_input = _getch();
     while (key_input != 27) {
+        KeyEvent(); // 키 이벤트 처리
         key_input = _getch();
     }
     if (key_input == 27) {
         system("cls");
         std::cout << "게임을 종료하시겠습니까?";
-        KeyEvent();
+        KeyEvent(); // 키 이벤트 처리
     }
-    return 0;
-
 }
 
 
-int main() {
+
+
+
+int notMain() {
     int game_state = 0;
     int game_run = 1;
 
@@ -123,7 +183,7 @@ int main() {
         case 1:
             system("cls");
             print_game_start();
-            
+
             //std::cout << "esc를 누르면 타이틀 화면으로 돌아갑니다.\n";
             key_input = _getch();
             while (key_input != 27) {
@@ -147,5 +207,5 @@ int main() {
         }
     }
     return 0;
+  
 }
-

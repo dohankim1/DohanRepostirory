@@ -15,12 +15,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="202227004 지렁이 추가 버전.cpp">
+    <ClCompile Include="ConsoleApplication3.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="help.h">
+    <ClInclude Include="helpfile.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
