@@ -127,10 +127,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClCompile Include="mainhamsu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="text.h" />
+=======
+    <ClCompile Include="ConsoleApplication1.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="hamsu.h" />
+>>>>>>> 03eb67e6854e3454602aa453f4dd9f7fab8fd127
     <ClInclude Include="map.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -15,12 +15,20 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClCompile Include="mainhamsu.cpp">
+=======
+    <ClCompile Include="ConsoleApplication1.cpp">
+>>>>>>> 03eb67e6854e3454602aa453f4dd9f7fab8fd127
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClInclude Include="text.h">
+=======
+    <ClInclude Include="hamsu.h">
+>>>>>>> 03eb67e6854e3454602aa453f4dd9f7fab8fd127
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="map.h">
