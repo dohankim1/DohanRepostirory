@@ -15,12 +15,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ConsoleApplication1.cpp">
+    <ClCompile Include="mainhamsu.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="hamsu.h">
+    <ClInclude Include="text.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="map.h">

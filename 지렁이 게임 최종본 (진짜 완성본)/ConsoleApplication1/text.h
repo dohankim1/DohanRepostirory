@@ -3,20 +3,6 @@
 #include <conio.h>
 #include <Windows.h>
 
-int weight = 20;
-int height = 20;
-char LastKey;
-void gotoxy(int x, int y) {
-    COORD pos = { x,y };
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
-}
-
-void printSquare(char c) {
-    for (int i = 0; i < 2; i++) {
-        std::cout << c << " ";
-    }
-    std::cout << std::endl;
-}
 
 int print_title_screen() {
     std::cout << "**********************************************\n";
@@ -34,12 +20,15 @@ int print_title_screen() {
 }
 
 int print_introduction_screen() {
-    std::cout << "************************************************\n";
-    std::cout << "    게임 설명 화면입니다.                      *\n";
-    std::cout << "    지렁이가 별을 먹으면 점수가 오릅니다.      *\n";
-    std::cout << "    지렁이가 별을 먹을때 100~400점이 오릅니다. *\n";
-    std::cout << "************************************************\n";
-    std::cout << "    타이틀 화면으로 돌아가겠습니까?(Y/N)       *\n";
+    std::cout << "******************************************************\n";
+    std::cout << "*   게임 설명 화면입니다.                            *\n";
+    std::cout << "*   지렁이가 별을 먹으면 점수가 오릅니다.            *\n";
+    std::cout << "*   지렁이가 별을 먹을때 100~400점이 오릅니다.       *\n";
+    std::cout << "*   지렁이가 하트를 먹을때 랜덤으로 점수가 오릅니다. *\n";
+    std::cout << "*   300,500,700점이 이 랜덤하게 오릅니다.            *\n";
+    std::cout << "*   혹은 점수가 0점이 될 수도 있죠.                  *\n";
+    std::cout << "******************************************************\n";
+    std::cout << "    타이틀 화면으로 돌아가겠습니까?(Y/N)             *\n";
     return 0;
 }
 
